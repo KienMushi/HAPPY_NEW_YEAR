@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>🧧 Thiệp Chúc Mừng Năm Mới 🧧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- QR Code -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #b31217, #e52d27, #ff6a6a);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      border-radius: 30px;
+      padding: 38px;
+      max-width: 430px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,215,0,0.4);
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 50px;
+      color: #ffd700;
+      margin-bottom: 8px;
+      text-shadow: 0 0 10px rgba(255,215,0,0.6);
+    }
+
+    h2 {
+      font-weight: 400;
+      color: #fff3b0;
+      margin-bottom: 22px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #fffde7;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #ffd700, #ffb703);
+      border: none;
+      color: #7a0000;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    .btn:hover {
+      transform: scale(1.07);
+      box-shadow: 0 8px 25px rgba(255,215,0,0.6);
+    }
+
+    #qrcode {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    iframe {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Hiệu ứng năm mới */
+    .item {
+      position: absolute;
+      top: -50px;
+      font-size: 22px;
+      animation: fall linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hoa + pháo + đèn lồng -->
+  <script>
+    const icons = ['🌸','✨','🧧','🎆','💖'];
+    for (let i = 0; i < 25; i++) {
+      const el = document.createElement('div');
+      el.className = 'item';
+      el.innerText = icons[Math.floor(Math.random() * icons.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.animationDuration = (5 + Math.random() * 6) + 's';
+      el.style.fontSize = (18 + Math.random() * 16) + 'px';
+      document.body.appendChild(el);
+    }
+  </script>
+
+  <div class="card">
+    <h1>Happy New Year 💖</h1>
+    <h2>Gửi người anh yêu</h2>
+
+    <p>
+     💖Gửi tới người anh yêu💖
+     <br><br>
+     Em là người bước vào thế giới của anh một cách bất ngờ vì anh chưa bao giờ nghĩ mình có thể mở lòng với một ai nữa vì đã chịu nhiều tổn thương nhưng khi anh gặp em thì anh nghĩ lúc đó mình đã sai khi bây giờ cũng đã có người yêu mình, anh cảm ơn em trong cái thời gian cuối năm 2025 đầy hạnh phúc và màu hồng khi em tới với cuộc sống của anh. Anh có thể cười nhiều hơn cũng là nhờ em, em rất đặc biệt trong cuộc đời một màu của anh. Nên là anh chúc em có một cái năm mới đầy may mắn và vui vẻ.
+     <br><br>
+     💖HAPPY NEW YEAR Người anh Yêu💖
+    </p>
+
+    <button class="btn" onclick="playMusic()">🎶 Mở nhạc năm mới</button>
+
+    <p style="font-size:13px;opacity:0.85">Quét QR để mở thiệp 🧧</p>
+    <div id="qrcode"></div>
+  </div>
+
+  <!-- YouTube -->
+<!-- YouTube -->
+<iframe
+  id="yt"
+  src="https://www.youtube.com/embed/nmiExXww_U8?enablejsapi=1"
+  allow="autoplay"
+  style="display:none">
+</iframe>
+
+<script>
+  let musicPlayed = false;
+
+  function playMusic() {
+    if (musicPlayed) return;
+    const iframe = document.getElementById("yt");
+    iframe.style.display = "block";
+    iframe.src += "&autoplay=1";
+    musicPlayed = true;
+  }
+ // QR
+    new QRCode(document.getElementById("qrcode"), {
+      text: window.location.href,
+      width: 120,
+      height: 120,
+      colorDark: "#ffd700",
+      colorLight: "transparent"
+    });
+  </script>
+
+</body>
+</html>
